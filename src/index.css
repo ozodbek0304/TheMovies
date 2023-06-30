@@ -1,0 +1,12 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+scroll-behavior: smooth;
+}
+.w3-dropdown-content{
+    width: 172.68px;
+    max-height: 168.6px;
+    padding: 8px 0;
+    background-color: #fff;
+}

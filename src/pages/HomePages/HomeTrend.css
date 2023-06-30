@@ -1,0 +1,98 @@
+.treyding{
+    background-image: url(/src/assets/music/trending-bg-39afc2a5f77e31d469b25c187814c0a2efef225494c038098d62317d923f8415.svg);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    transition: height .5s linear;
+    width: 90%;
+    margin-left: 5rem;
+
+}
+.treydingImg{
+    overflow-x: scroll;
+    overflow-y: hidden;
+    transition: height .5s linear;
+    width: 90%;
+    margin-left: 5rem;
+    color:#fff;
+}
+.homelatestImg{
+    background-image: linear-gradient( to right, rgba(3, 37, 65, 0.84) 0%, rgba(3, 37, 65, 0) 100%),url(/src/assets/Movies/wq3vuQzQgbS83zX3malAFWMsSwX.jpg);
+    height: 540px;
+   width: 90%;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+   margin: 0 auto;
+   border-radius: 7px;
+}
+.scroll{
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.card_text{
+    font-weight: 700;
+    font-size: 1.3rem;
+    padding: 0 0.5rem;
+    padding-top: 5px;
+    
+
+}
+.card_text:hover{
+    color:rgba(0, 140, 255, 0.767);
+    cursor: pointer;
+}
+.img{
+    object-fit: cover;
+    height: 291px;
+
+}
+.img:hover{
+ transform: scale(1.07);
+ object-fit: cover;
+transition: 1.05s;
+}
+.divImg{
+    overflow: hidden;
+}
+.treyding::-webkit-scrollbar {
+    display: flex;
+}
+.treydingImg::-webkit-scrollbar {
+    display: flex;
+}
+
+.buuttonBorder{
+    width: 210px;
+    height: 33px;
+    display: flex;
+    border: 2px solid rgb(30,213,169);
+    justify-content: space-between;
+    border-radius: 15px;
+}
+.buttonday{
+    width:  100px;
+    border-radius: 15px;
+    color:#82b977;
+    font-weight: 800;
+    border: none;
+
+}
+.active_btn {
+    background-color: rgb(3,37,65);
+}
+.active_btn span {
+    background: linear-gradient(to right, rgba(30,213,169) 0%, rgba(1,180,228) 100%);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+.buttonday1{
+    width:  100px;
+    border-radius: 15px;
+    color: rgb(3,37,65);
+    border: none;
+    font-weight: 700;
+}
