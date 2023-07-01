@@ -50,6 +50,14 @@
     height: 291px;
 
 }
+.hov{
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    transform: translate(140px, -280px);
+    background-color: transparent;
+}
+
 .img:hover{
  transform: scale(1.07);
  object-fit: cover;

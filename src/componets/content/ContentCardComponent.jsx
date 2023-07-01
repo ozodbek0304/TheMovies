@@ -2,10 +2,18 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { contentUrl } from '../../repositories/repository'
 import './ContentCardComponent.css'
+import { useDispatch } from 'react-redux';
+import { addItem } from '../../Store';
 
 
 
 export default function ContentCardComponent(props) {
+
+    const dispatch = useDispatch();
+
+    function handleClick(product) {
+        dispatch(addItem(product))
+    }
     return (
         (props.movieList) &&
         (props.movieList.map((item, index) => {
@@ -13,11 +21,15 @@ export default function ContentCardComponent(props) {
                 <div key={index} className="content-card-component">
                     <div className="card" >
                         <Link to={`/movie/${item.id}`}>
-                        <img src={contentUrl + item.poster_path} alt={item.title} className="card-img-top img" />
+                            <img src={contentUrl + item.poster_path} alt={item.title} className="card-img-top img" />
                         </Link>
                         <div className="card-body">
                             <h5 className="card-title">{item.title}</h5>
-                            <p className="card-text">{item.release_date}</p>
+                            <p className="card-text">{item.release_date}
+                                <Link className='text-danger' onClick={() => handleClick(item)} >
+                                    <i className="fa-solid fa-heart mx-3"></i>
+                                </Link>
+                            </p>
                         </div>
                     </div>
                 </div>

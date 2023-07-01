@@ -3,11 +3,19 @@ import movie from '../../repositories/movie'
 import { contentUrl } from '../../repositories/repository'
 import { Link } from 'react-router-dom'
 import "./HomeTrend.css"
+import { useDispatch } from 'react-redux'
+import { addItem } from '../../Store'
 
 const HomePoplular = () => {
 
   const [popularMovieList, setPopularMovieList] = useState([]);
   const [type, setType] = useState('day')
+
+  const dispatch = useDispatch();
+
+  function handleClick(product) {
+   dispatch(addItem(product))
+ }
 
   async function getTrendingMovie() {
     const currentTrendingMovies = await movie.getTrendingMovie(type)
@@ -33,14 +41,17 @@ const HomePoplular = () => {
             (popularMovieList.map((item, index) => {
               return (
                 <div key={index} className="content-card-component">
-               <div className='divImg'>
-               <Link to={`/details/${item.id}`} className="card cardScroll" >
-                    <img src={contentUrl + item.backdrop_path} alt={item.title} className="card-img-top img rounded" />
-                  </Link>
-               </div>
+                  <div className='divImg'>
+                    <Link to={`/details/${item.id}`} className="card cardScroll" >
+                      <img src={contentUrl + item.backdrop_path} alt={item.title} className="card-img-top img rounded" />
+                    </Link>
+                  </div>
                   <h5 className="card_text">{item.title}</h5>
                   <p className="card_text">{item.release_date
-                  }</p>
+                  }                    <Link className='text-danger' onClick={() => handleClick(item)} >
+                      <i className="fa-solid fa-heart mx-3"></i>
+                    </Link>
+                  </p>
                 </div>
               )
             }))

@@ -15,7 +15,7 @@ const HomeTreding = () => {
 
   const dispatch = useDispatch();
 
-  async function handleClick(product) {
+   function handleClick(product) {
     dispatch(addItem(product))
   }
 
@@ -34,7 +34,7 @@ const HomeTreding = () => {
 
       <div className='d-flex my-4 gap-4 container '>
         <h2 >Trending</h2>
-        <div className='buuttonBorder --bs-tertiary-bg'>
+        <div className='buuttonBorder '>
           <button onClick={() => setType('day')} className={`buttonday ${type == 'day' && 'active_btn'}`}><span>Today</span></button>
           <button onClick={() => setType('week')} className={`buttonday1 ${type == 'week' && 'active_btn'}`}><span>This Week</span></button>
         </div>
@@ -48,6 +48,7 @@ const HomeTreding = () => {
                   <div className='divImg'>
                     <Link to={`/details/${item.id}`} className="cardScroll text-reset  text-decoration-none"  >
                       <img src={contentUrl + item.backdrop_path} alt={item.title} className=" img rounded" />
+                      <button  className='hov'>...</button>
                     </Link>
                   </div>
                   <h5 className="card_text">{item.title}</h5>

@@ -3,6 +3,8 @@ import movie from '../../repositories/movie'
 import { contentUrl } from '../../repositories/repository'
 import { Link } from 'react-router-dom'
 import "../HomePages/HomeTrend.css"
+import { useDispatch } from 'react-redux'
+import { addItem } from '../../Store'
 
 
 
@@ -11,6 +13,13 @@ const HomePoplular = () => {
   const [popularMovieList, setPopularMovieList] = useState([]);
 
   const [type, setType] = useState('day')
+
+  const dispatch = useDispatch();
+
+  function handleClick(product) {
+    dispatch(addItem(product))
+  }
+
 
   async function getTrendingMovie() {
     const currentTrendingMovies = await movie.getTrendingMovie(type)
@@ -35,18 +44,24 @@ const HomePoplular = () => {
           {(popularMovieList) &&
             (popularMovieList.map((item, index) => {
               return (
-                  <Link key={index} to={`/details/${item.id}`} className="cardScroll text-reset text-decoration-none" >
-                <div  className="content-card-component">
-                  <div className='divImg'>
-                    <img src={contentUrl + item.backdrop_path} alt={item.title} className="img rounded" />
+                <div  key={index} className="content-card-component">
+                    <Link to={`/details/${item.id}`} className="cardScroll text-reset text-decoration-none" >
+                    <div className='divImg'>
+                      <img src={contentUrl + item.backdrop_path} alt={item.title} className="img rounded" />
+                    </div>
+                </Link>
+
+                    <h5 className="card_text">{item.title}</h5>
+                    <p className="card_text">{item.release_date
+                    }
+                      <Link className='text-danger' onClick={() => handleClick(item)} >
+                        <i className="fa-solid fa-heart mx-3"></i>
+                      </Link>
+                    </p>
+                    <p className="card_text">{item.first_air_date
+                    }
+                    </p>
                   </div>
-                  <h5 className="card_text">{item.title}</h5>
-                  <p className="card_text">{item.release_date
-                  }</p>
-                  <p className="card_text">{item.first_air_date
-                  }</p>
-                </div>
-                  </Link>
               )
             }))
           }

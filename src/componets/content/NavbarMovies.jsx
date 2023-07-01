@@ -1,8 +1,10 @@
 import {Link} from "react-router-dom"
 import "../content/NavbarMovies.css"
 import logo from "../../assets/logos/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c (1).svg"
+import { useSelector } from "react-redux"
 
 const NavbarMovies = () => {
+    const {card}=useSelector(s=>s)
 
     return (
         <div className='nav shadow'>
@@ -76,8 +78,9 @@ const NavbarMovies = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link to={"/store"} className='text-reset text-decoration-none fs-5 '>
-                        <i className="fa-solid fa-cart-plus"></i>
+                        <Link to={"/store"} className='text-danger  text-decoration-none fs-5 '>
+                        <i className="fa-solid fa-heart mx-2"></i>
+                        <span className="text-bg-danger spanLength">{card.length}</span>
                         </Link>
                     </li>
                 </ul>
