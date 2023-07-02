@@ -5,7 +5,7 @@
     margin: 0 auto;
     background-position: center center;
     background-size: cover;
-    box-shadow: 1px 5px 10px 10px grey;
+    box-shadow: 1px 5px 15px 5px grey;
     background-image: linear-gradient(to right, rgba(3, 37, 65, 0.84) 0%, rgba(3, 37, 65, 0) 100%), url(/src/assets/Movies/tlEFuIlaxRPXIYVHXbOSAMCfWqk.jpg);
 }
 input{
