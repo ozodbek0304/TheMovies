@@ -7,7 +7,6 @@
     transition: height .5s linear;
     width: 90%;
     margin-left: 5rem;
-
 }
 .treydingImg{
     overflow-x: scroll;
@@ -48,21 +47,29 @@
 .img{
     object-fit: cover;
     height: 291px;
-
 }
-.hov{
-    width: 30px;
-    height: 30px;
-    border-radius: 30px;
-    transform: translate(140px, -280px);
+
+
+.iconkaImg{
+    position: absolute;
     background-color: transparent;
+    top:5px;
+    right:-50px;
+}
+.iconkaImgLas{
+  transform: translate(140px, -280px);
+}
+.iconkaLas{
+    position: absolute;
+    height: 30px;
 }
 
-.img:hover{
- transform: scale(1.07);
- object-fit: cover;
-transition: 1.05s;
+
+
+.iconka{
+    height: 30px;
 }
+
 .divImg{
     overflow: hidden;
 }

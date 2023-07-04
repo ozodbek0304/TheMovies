@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { addItem } from '../../Store/index'
 import "../HomePages/HomeTrend.css"
+import iconka from "../../assets/logos/iconka.svg"
 
 
 
@@ -13,9 +14,10 @@ const HomeTreding = () => {
   const [trendingMovieList, setTrendMovieList] = useState([]);
   const [type, setType] = useState('day')
 
+
   const dispatch = useDispatch();
 
-   function handleClick(product) {
+  function handleClick(product) {
     dispatch(addItem(product))
   }
 
@@ -45,18 +47,25 @@ const HomeTreding = () => {
             (trendingMovieList.map((item, index) => {
               return (
                 <div className="content-card-component" key={index}>
+                  <div className={`dropdown `}>
+                    <div  className='iconkaImg' type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <img   src={iconka} alt="" className={`iconka } `} />
+                    </div>
+                    <ul className="dropdown-menu px-2 ">
+                      <li className='py-1'><Link className="dropdown-item " > <i className="fa-solid  fa-list mx-1"></i> Add to list</Link></li>
+                      <li className='py-1'><Link  onClick={() => handleClick(item)}  className="dropdown-item " >  <i className="fa-solid  fa-heart mx-1 fs-6"></i> Favorite</Link></li>
+                      <li className='py-1'><Link className="dropdown-item " > <i className="fa-solid  fa-bookmark mx-1"></i> Watchlist</Link></li>
+                      <li className='py-1'><Link className="dropdown-item " > <i className="fa-solid  fa-star "></i> Your rating</Link></li>
+                    </ul>
+                  </div>
                   <div className='divImg'>
                     <Link to={`/details/${item.id}`} className="cardScroll text-reset  text-decoration-none"  >
                       <img src={contentUrl + item.backdrop_path} alt={item.title} className=" img rounded" />
-                      <button  className='hov'>...</button>
                     </Link>
                   </div>
                   <h5 className="card_text">{item.title}</h5>
                   <p className="card_text">{item.release_date
                   }
-                    <Link className='text-danger' onClick={() => handleClick(item)} >
-                      <i className="fa-solid fa-heart mx-3"></i>
-                    </Link>
                   </p>
                 </div>
               )

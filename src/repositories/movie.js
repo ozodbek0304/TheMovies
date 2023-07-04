@@ -84,7 +84,7 @@ class Movie {
             }
         })
         .then(ress => {
-            return ress.data
+            return  console.log( ress.data);
         })
         .catch(err => {
             console.log(err);
@@ -115,4 +115,4 @@ class Movie {
 }
 
 
-export default new Movie()
+export default new Movie() 
