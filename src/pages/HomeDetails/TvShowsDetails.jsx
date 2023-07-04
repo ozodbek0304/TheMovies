@@ -9,10 +9,14 @@ const TvShowsDetails = () => {
     const {id} = useParams()
 
     const [tvShowsListDetails, setTvShowsListDetails] = useState([])
+  const [loading, setLoading] = useState(false);
+
 
     async function getMoviesByNameTvShows(id){
+      setLoading(true)
         const currentMovies = await tvshows.getMoviesByNameTvShows(id)
         setTvShowsListDetails(currentMovies)
+      setLoading(false)
     }
     console.log(tvShowsListDetails);
     useEffect(() => {
@@ -21,7 +25,14 @@ const TvShowsDetails = () => {
 
   return (
     <div>
-      {tvShowsListDetails && (
+      {
+        (loading)?
+        (
+          <div className=' min-vh1-100 text-center text-white'>
+          <h1 className='display-1 '>LOADING..</h1>
+        </div>
+        ):
+  (    tvShowsListDetails && (
         <div>
           <img
             className="backdrop_path-img"
@@ -45,7 +56,8 @@ const TvShowsDetails = () => {
           </div>
 
         </div>
-      )}
+      ))
+      }
     </div>
   );
 }

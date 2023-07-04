@@ -8,11 +8,15 @@ import "../HomeDetails/HomeDetails.css"
 const SearchDetails = () => {
     const { title } = useParams();
     const [searchUser, setSearchUser] = useState([]);
+  const [loading, setLoading] = useState(false);
+
 
     async function getSerachByValue(title) {
-
+        setLoading(true)
         const currentMovies = await search.getSerachByValue(title)
         setSearchUser(currentMovies.results)
+        setLoading(false)
+
     }
 
     useEffect(() => {
@@ -22,7 +26,14 @@ const SearchDetails = () => {
     return (
         <div>
             {
-                (searchUser.length > 0) ?
+              
+              (loading)?
+              (
+                <div className=' min-vh1-100 text-center text-white'>
+                <h1 className='display-1 '>LOADING..</h1>
+              </div>
+              ):
+     (         (searchUser.length > 0) ?
                     (
                         <div>
                             {
@@ -50,7 +61,7 @@ const SearchDetails = () => {
                     (
                         <div><h1>
                             Loading...</h1></div>
-                    )
+                    ))
 
             }
         </div>

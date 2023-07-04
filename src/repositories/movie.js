@@ -84,7 +84,7 @@ class Movie {
             }
         })
         .then(ress => {
-            return  console.log( ress.data);
+            return  ress.data
         })
         .catch(err => {
             console.log(err);

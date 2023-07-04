@@ -11,6 +11,8 @@ import iconka from "../../assets/logos/iconka.svg"
 const HomePoplular = () => {
 
   const [popularMovieList, setPopularMovieList] = useState([]);
+  const [loading, setLoading] = useState(false);
+
   const [type, setType] = useState('day')
 
   const dispatch = useDispatch();
@@ -20,8 +22,10 @@ const HomePoplular = () => {
   }
 
   async function getTrendingMovie() {
+    setLoading(true)
     const currentTrendingMovies = await movie.getTrendingMovie(type)
     setPopularMovieList(currentTrendingMovies);
+    setLoading(false)
   }
 
   useEffect(() => {
@@ -37,7 +41,14 @@ const HomePoplular = () => {
           <button onClick={() => setType('week')} className={`buttonday1 ${type == 'week' && 'active_btn'}`}><span>In Theaters</span></button>
         </div>
       </div>
-      <div className='scroll'>
+ {   
+ (loading)?
+ (
+  <div className=' min-vh1-100 text-center text-white'>
+  <h1 className='display-1 '>LOADING..</h1>
+</div>
+ ):
+ (<div className='scroll'>
         <div className='d-flex treydingImg gap-4'>
           {(popularMovieList) &&
             (popularMovieList.map((item, index) => {
@@ -69,7 +80,7 @@ const HomePoplular = () => {
             }))
           }
         </div>
-      </div>
+      </div>)}
     </div>
 
   )

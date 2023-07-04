@@ -12,6 +12,7 @@ import iconka from "../../assets/logos/iconka.svg"
 const HomeTreding = () => {
 
   const [trendingMovieList, setTrendMovieList] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [type, setType] = useState('day')
 
 
@@ -22,8 +23,10 @@ const HomeTreding = () => {
   }
 
   async function getTrendingMovie() {
+    setLoading(true)
     const currentTrendingMovies = await movie.getTrendingMovie(type)
     setTrendMovieList(currentTrendingMovies);
+    setLoading(false)
   }
 
 
@@ -36,12 +39,21 @@ const HomeTreding = () => {
 
       <div className='d-flex my-4 gap-4 container '>
         <h2 >Trending</h2>
+        
         <div className='buuttonBorder '>
           <button onClick={() => setType('day')} className={`buttonday ${type == 'day' && 'active_btn'}`}><span>Today</span></button>
           <button onClick={() => setType('week')} className={`buttonday1 ${type == 'week' && 'active_btn'}`}><span>This Week</span></button>
         </div>
       </div>
-      <div className='scroll'>
+
+     {
+     (loading)?
+     (
+      <div className=' min-vh1-100 text-center'>
+      <h1 className='display-1 '>LOADING..</h1>
+  </div>
+     ):
+    ( <div className='scroll'>
         <div className='d-flex treyding gap-4'>
           {(trendingMovieList) &&
             (trendingMovieList.map((item, index) => {
@@ -72,7 +84,8 @@ const HomeTreding = () => {
             }))
           }
         </div>
-      </div>
+      </div>)
+      }
     </div>
 
   )

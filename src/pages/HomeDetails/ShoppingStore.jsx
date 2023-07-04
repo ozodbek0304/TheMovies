@@ -5,6 +5,7 @@ import { minusItem, plusItem, removeItem } from '../../Store/index';
 
 const ShoppingStore = () => {
   const { card } = useSelector(state => state)
+
   const dispatch=useDispatch();
   function handleRemoveItem(id){
     dispatch(removeItem(id))
@@ -20,7 +21,7 @@ const ShoppingStore = () => {
   return (
     <section className='text-bg-ligth pb-5'>
       <div className="container">
-      <h1 className='text-center py-3 text-primary'>Your Cart</h1>
+      <h1 className='text-center py-3 text-primary'>Hozircha Siz Tanlagan Kinolar Yo'q</h1>
     <ul className='list-group'>
      {
       (card.length>0)&&(

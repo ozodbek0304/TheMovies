@@ -8,11 +8,16 @@ import "../HomeDetails/HomeDetails.css"
 const HomeDetails = () => {
   const { id } = useParams();
   const [listDetails, setListDetails] = useState([])
+  const [loading, setLoading] = useState(false);
+
 
 
   async function getTrendingMovieDetails(id) {
+    setLoading(true)
     const currentMovies = await trendingDetails.getTrendingMovieDetails(id)
     setListDetails(currentMovies)
+    setLoading(false)
+
   }
 
   useEffect(() => {
@@ -21,7 +26,15 @@ const HomeDetails = () => {
 
   return (
     <div>
-      {listDetails && (
+      {
+      (loading)?
+      (
+        <div className=' min-vh1-100 text-center text-white'>
+        <h1 className='display-1 '>LOADING..</h1>
+      </div>
+      ):
+      
+  (    listDetails && (
         <div>
           <img
             className="backdrop_path-img"
@@ -46,7 +59,7 @@ const HomeDetails = () => {
           </div>
 
         </div>
-      )}
+      ))}
     </div>
   );
 }

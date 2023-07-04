@@ -9,12 +9,16 @@ const PeopleDetails = () => {
     const {id} = useParams()
 
     const [peopleListDetails, setPeopleListDetails] = useState([])
+  const [loading, setLoading] = useState(false);
+
 
     async function getMoviesByNamePerson(id){
+      setLoading(true)
         const currentMovies = await people.getMoviesByNamePerson(id)
         setPeopleListDetails(currentMovies)
+      setLoading(false)
+
     }
-    console.log(peopleListDetails);
     useEffect(() => {
       getMoviesByNamePerson(id)
     }, [id])
@@ -22,7 +26,14 @@ const PeopleDetails = () => {
 
   return (
     <div>
-      {peopleListDetails && (
+      {
+        (loading)?
+        (
+          <div className=' min-vh1-100 text-center text-white'>
+          <h1 className='display-1 '>LOADING..</h1>
+        </div>
+        ):
+ (     peopleListDetails && (
         <div>
           <img
             className="backdrop_path-img"
@@ -46,7 +57,8 @@ const PeopleDetails = () => {
           </div>
 
         </div>
-      )}
+      ))
+      }
     </div>
   );
 }

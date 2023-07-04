@@ -9,10 +9,14 @@ const NavbarDetails = () => {
     const {id} = useParams()
 
     const [movieListDetails, setMovieListDetails] = useState([])
+  const [loading, setLoading] = useState(false);
+
 
     async function getMoviesByName(id){
+      setLoading(true)
         const currentMovies = await movie.getMoviesByName(id)
         setMovieListDetails(currentMovies)
+      setLoading(false)
     }
     useEffect(() => {
         getMoviesByName(id)
@@ -21,7 +25,14 @@ const NavbarDetails = () => {
 
   return (
     <div>
-      {movieListDetails && (
+      {
+        (loading)?
+        (
+          <div className=' min-vh1-100 text-center text-white'>
+          <h1 className='display-1 '>LOADING..</h1>
+        </div>
+        ):
+(      movieListDetails && (
         <div>
           <img
             className="backdrop_path-img"
@@ -45,7 +56,8 @@ const NavbarDetails = () => {
           </div>
 
         </div>
-      )}
+      ))
+      }
     </div>
   );
 }
