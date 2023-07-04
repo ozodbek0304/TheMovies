@@ -66,6 +66,38 @@
   }
 
   .buttonItem{
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
+    background-color: transparent;
+    border-radius: 50px;
+    border: 1px solid grey;
   }
+  .buttonItem:hover{
+    background-color: rgba(156, 155, 155, 0.973);
+  }
+  .buttonTrash{
+    color: grey ;
+  }
+  .buttonTrash:hover{
+    color: #fff;
+  }
+
+.shoppingList{
+    width: 1350px;
+    margin: 0 auto;
+    padding-right: 2rem;
+    line-height: 36px;
+    height: 220px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0px 0px 10px 0px grey;
+}
+.DetailsImg{
+    height: 200px;
+    width: 200px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.minHegiht{
+    min-height: 350px;
+}

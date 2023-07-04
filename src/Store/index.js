@@ -7,7 +7,7 @@ export const cardSilce= createSlice({
          addItem:(state, action)=>{
           let item=state.find((item)=>item.id===action.payload.id);
           if (item) item.count++;
-          else state.push({...action.payload, count:0, prcie:100})
+          else state.push({...action.payload, count:0})
          localStorage.setItem('card', JSON.stringify(state))
          },   
          
@@ -19,17 +19,9 @@ export const cardSilce= createSlice({
        return state.filter((item) => item.id !== action.payload) 
          },
 
-         plusItem:(state, action)=>{
-          return state.map((item) => item.id === action.payload ? {...item, count: item.count+1}:item) 
-
-         },
-
-         minusItem:(state, action)=>{
-          return state.map((item) => item.id === action.payload ? {...item, count: item.count-1}:item) 
-         }
     }
 
 })
 
-export const {addItem, removeItem, plusItem, minusItem}=cardSilce.actions;
+export const {addItem, removeItem}=cardSilce.actions;
 export default cardSilce.reducer

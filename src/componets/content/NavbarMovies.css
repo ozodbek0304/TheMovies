@@ -20,18 +20,17 @@ li{
     list-style: none;
 }
 .navbarUl{
-    width: 308px;
     padding-top: 8px;
     display: flex;
-    justify-content: space-between;
+   gap: 2rem;
 }
 .fa-magnifying-glass{
     transform: translate(-5px, -5px);
 }
-.spanLength{
+.uzunlik{
     padding: 1px 8px 2px 8px;
     border-radius: 5px;
-}
-.fa-heart{
-    font-size: 25px;
+    background-color: red;
+    font-weight: bold;
+    color:#fff;
 }

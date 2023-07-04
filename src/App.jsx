@@ -12,6 +12,7 @@ import PeopleDetails from './pages/HomeDetails/PeopleDetails';
 import SearchDetails from './pages/HomeDetails/SearchDetails';
 import { store } from './App/Store';
 import ShoppingStore from './pages/HomeDetails/ShoppingStore';
+import ShoppingWatching from './pages/HomeDetails/ShoppingWatching';
 function App() {
 
   return (
@@ -27,6 +28,7 @@ function App() {
     <Route path='search/:title' element={<SearchDetails/>}/>
     <Route path='peopledetails/:id' element={<PeopleDetails/>}/>
     <Route path='/store' element={<ShoppingStore/>}/>
+    <Route path='/watching' element={<ShoppingWatching/>}/>
     <Route path='/' element={<HomeLayout/>}>
     </Route>
     </Route>
