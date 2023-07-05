@@ -26,7 +26,7 @@ const ShoppingStore = () => {
                     <div className='d-flex justify-content-between col-md-11'>
                     <h4 className='m-0'>{item.title || item.name} </h4>
                      <h4>
-                      {item.count}
+                     <i className="fa-solid fa-heart"></i>  {item.count}
                      </h4>
                     </div>
                     <span>{item.release_date}</span>

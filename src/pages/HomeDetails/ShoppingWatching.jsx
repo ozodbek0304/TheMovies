@@ -26,8 +26,8 @@ const ShoppingWatching = () => {
                   <div className='col-11 mt-4'>
                     <div className='d-flex justify-content-between col-md-11'>
                     <h4 className='m-0'>{item.title || item.name} </h4>
-                     <h4>
-                      {item.count}
+                     <h4 >
+                     <i className="fa-solid fa-bookmark"></i> {item.count}
                      </h4>
                     </div>
                     <span>{item.release_date}</span>
